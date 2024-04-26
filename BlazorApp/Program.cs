@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<BlazorMovieAppContext>(options =>options.UseSqlServer(builder.Configuration.GetConnectionString("BlazorMovieAppContext") ?? throw new InvalidOperationException("Connection string 'BlazorMovieAppContext' not found.")));
 
+builder.Services.AddQuickGridEntityFrameworkAdapter();
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
